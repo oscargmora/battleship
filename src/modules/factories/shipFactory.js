@@ -3,16 +3,17 @@ class Ship {
         this.name = name;
         this.length = length;
         this.hits = 0;
-        this.sink = false;
+        this.sunk = false;
     }
 
     hit() {
         this.hits += 1;
+        this.isSunk();
     }
 
     isSunk() {
         if (this.hits === this.length) {
-            this.sink = true;
+            this.sunk = true;
         }
     }
 }

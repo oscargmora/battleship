@@ -1,10 +1,5 @@
-import Ship from './factories/shipFactory';
+import GameBoard from './factories/gameBoardFactory';
 
-const carrier = new Ship(5);
+const gameBoard = new GameBoard();
 
-function hitCarrier() {
-    carrier.hit();
-    return carrier.hits;
-}
-
-export default hitCarrier;
+gameBoard.placeShip('carrier', 5, 9, 9, 'horizontal');

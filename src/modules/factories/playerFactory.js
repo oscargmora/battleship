@@ -28,9 +28,20 @@ class Player {
         return array;
     }
 
+    AIChooseShipLocation() {
+        const randomX = Math.floor(Math.random() * 9) + 1;
+        const randomY = Math.floor(Math.random() * 9) + 1;
+    }
+
     AIChooseAttack() {
         const randomIndex = Math.floor(Math.random() * this.AIArray.length);
-        return randomIndex;
+
+        if (this.AIArray[randomIndex].length === 0) {
+            this.AIArray[randomIndex].push('shot');
+            return this.AIArray[randomIndex];
+        }
+
+        return this.AIChooseAttack();
     }
 }
 

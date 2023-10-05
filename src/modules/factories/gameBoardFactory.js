@@ -38,7 +38,7 @@ class GameBoard {
     findIndex(x, y) {
         const { array } = this;
 
-        for (let i = 0; i < this.array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             if (x === array[i][0] && y === array[i][1]) {
                 return i;
             }

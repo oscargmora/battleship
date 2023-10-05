@@ -5,7 +5,8 @@ import GameBoard from './gameBoardFactory';
 class Player {
     constructor(playerNumber) {
         this.playerNumber = playerNumber;
-        this.AIArray = this.createAIArray();
+        this.AIShotArray = this.createAIArray();
+        this.AIShipsArray = this.createAIArray();
     }
 
     chooseShipLocation(shipName, shipLength, x, y, orientation) {
@@ -28,17 +29,34 @@ class Player {
         return array;
     }
 
-    AIChooseShipLocation() {
+    AIChooseShipLocation(shipName, shipLength) {
         const randomX = Math.floor(Math.random() * 9) + 1;
         const randomY = Math.floor(Math.random() * 9) + 1;
+        const orientations = ['horizontal', 'vertical'];
+        const randomOrientation =
+            orientations[Math.floor(Math.random() * orientations.length)];
+
+        const shipPlacement = GameBoard.placeShip(
+            shipName,
+            shipLength,
+            randomX,
+            randomY,
+            randomOrientation
+        );
+
+        if (Array.isArray(shipPlacement)) {
+            return shipPlacement;
+        }
+
+        return this.AIChooseShipLocation();
     }
 
     AIChooseAttack() {
-        const randomIndex = Math.floor(Math.random() * this.AIArray.length);
+        const randomIndex = Math.floor(Math.random() * this.AIShotArray.length);
 
-        if (this.AIArray[randomIndex].length === 0) {
-            this.AIArray[randomIndex].push('shot');
-            return this.AIArray[randomIndex];
+        if (this.AIShotArray[randomIndex].length === 0) {
+            this.AIShotArray[randomIndex].push('shot');
+            return this.AIShotArray[randomIndex];
         }
 
         return this.AIChooseAttack();

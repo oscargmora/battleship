@@ -36,10 +36,8 @@ class GameBoard {
     }
 
     findIndex(x, y) {
-        const { array } = this;
-
-        for (let i = 0; i < array.length; i++) {
-            if (x === array[i][0] && y === array[i][1]) {
+        for (let i = 0; i < this.array.length; i++) {
+            if (x === this.array[i][0] && y === this.array[i][1]) {
                 return i;
             }
         }
@@ -182,6 +180,7 @@ class GameBoard {
                 return result;
             }
 
+            // Possibly change to return an array of index's?
             return shipArray;
         }
 

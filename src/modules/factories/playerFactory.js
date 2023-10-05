@@ -7,6 +7,7 @@ class Player {
         this.playerNumber = playerNumber;
         this.AIShotArray = this.createAIArray();
         this.AIShipsArray = this.createAIArray();
+        this.gameBoard = new GameBoard();
     }
 
     chooseShipLocation(shipName, shipLength, x, y, orientation) {
@@ -36,7 +37,7 @@ class Player {
         const randomOrientation =
             orientations[Math.floor(Math.random() * orientations.length)];
 
-        const shipPlacement = GameBoard.placeShip(
+        const shipPlacement = this.gameBoard.placeShip(
             shipName,
             shipLength,
             randomX,
@@ -56,7 +57,7 @@ class Player {
 
         if (this.AIShotArray[randomIndex].length === 0) {
             this.AIShotArray[randomIndex].push('shot');
-            return this.AIShotArray[randomIndex];
+            return randomIndex;
         }
 
         return this.AIChooseAttack();

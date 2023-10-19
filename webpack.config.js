@@ -26,7 +26,7 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: ['node_modules'],
+                exclude: /node_modules/,
                 use: ['babel-loader']
             },
             {
@@ -48,7 +48,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['@babel/present-env', { targets: 'defaults' }]
+                            ['@babel/preset-env', { targets: 'defaults' }]
                         ]
                     }
                 }

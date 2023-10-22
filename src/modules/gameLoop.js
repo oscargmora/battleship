@@ -2,8 +2,8 @@ import Player from './factories/playerFactory';
 import displayGameBoards from './UI';
 
 function gameLoop() {
-    const user = new Player(1);
-    const AI = new Player(2);
+    const user = new Player('one');
+    const AI = new Player('two');
 
     user.chooseShipLocation('carrier', 5, 3, 0, 'horizontal');
     user.chooseShipLocation('cruiser', 3, 2, 2, 'vertical');

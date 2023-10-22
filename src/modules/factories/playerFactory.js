@@ -6,16 +6,15 @@ class Player {
     constructor(playerNumber) {
         this.playerNumber = playerNumber;
         this.AIShotArray = this.createAIArray();
-        this.AIShipsArray = this.createAIArray();
-        this.gameBoard = new GameBoard();
+        this.gameBoard = new GameBoard(playerNumber);
     }
 
     chooseShipLocation(shipName, shipLength, x, y, orientation) {
-        GameBoard.placeShip(shipName, shipLength, x, y, orientation);
+        this.gameBoard.placeShip(shipName, shipLength, x, y, orientation);
     }
 
     chooseAttack(x, y) {
-        GameBoard.receiveAttack(x, y);
+        this.gameBoard.receiveAttack(x, y);
     }
 
     createAIArray() {
@@ -49,7 +48,9 @@ class Player {
             return shipPlacement;
         }
 
-        return this.AIChooseShipLocation();
+        this.gameBoard.removeShip(shipName);
+
+        return this.AIChooseShipLocation(shipName, shipLength);
     }
 
     AIChooseAttack() {

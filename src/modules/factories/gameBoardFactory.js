@@ -5,7 +5,8 @@
 import Ship from './shipFactory';
 
 class GameBoard {
-    constructor() {
+    constructor(playerNumber) {
+        this.playerNumber = playerNumber;
         this.array = this.createBoard();
         this.hitArray = this.createHitArray();
         this.hitLog = 0;
@@ -121,27 +122,35 @@ class GameBoard {
             for (let i = 0; i < leftShipLength; i++) {
                 decreasedX -= 1;
                 const newIndex = this.findIndex(decreasedX, y);
-                array[newIndex].push(ship);
-                shipArray.push([decreasedX, y, ship]);
+                if (this.array[newIndex].length !== 3) {
+                    array[newIndex].push(ship.name);
+                    shipArray.push([decreasedX, y, ship.name]);
+                } else return `Invalid Space: (${decreasedX}, ${y})`;
             }
             for (let i = 0; i < rightShipLength; i++) {
                 increasedX += 1;
                 const newIndex = this.findIndex(increasedX, y);
-                array[newIndex].push(ship);
-                shipArray.push([increasedX, y, ship]);
+                if (this.array[newIndex].length !== 3) {
+                    array[newIndex].push(ship.name);
+                    shipArray.push([increasedX, y, ship.name]);
+                } else return `Invalid Space: (${decreasedX}, ${y})`;
             }
         } else {
             for (let i = 0; i < leftShipLength; i++) {
                 decreasedY -= 1;
                 const newIndex = this.findIndex(x, decreasedY);
-                array[newIndex].push(ship);
-                shipArray.push([x, decreasedY, ship]);
+                if (this.array[newIndex].length !== 3) {
+                    array[newIndex].push(ship.name);
+                    shipArray.push([x, decreasedY, ship.name]);
+                } else return `Invalid Space: (${x}, ${decreasedY})`;
             }
             for (let i = 0; i < rightShipLength; i++) {
                 increasedY += 1;
                 const newIndex = this.findIndex(x, increasedY);
-                array[newIndex].push(ship);
-                shipArray.push([x, increasedY, ship]);
+                if (this.array[newIndex].length !== 3) {
+                    array[newIndex].push(ship.name);
+                    shipArray.push([x, increasedY, ship.name]);
+                } else return `Invalid Space: (${x}, ${decreasedY})`;
             }
         }
 
@@ -162,8 +171,8 @@ class GameBoard {
         const shipArray = [];
 
         if (this.array[initialIndex].length !== 3) {
-            this.array[initialIndex].push(ship);
-            shipArray.push([x, y, ship]);
+            this.array[initialIndex].push(shipName);
+            shipArray.push([x, y, shipName]);
 
             const result = this.placeRestOfShip(
                 ship,
@@ -206,6 +215,14 @@ class GameBoard {
         }
 
         return 'Space Already Shot At';
+    }
+
+    removeShip(shipName) {
+        for (let i = 0; i < this.array.length; i++) {
+            if (this.array[i][2] === shipName) {
+                this.array[i].pop();
+            }
+        }
     }
 
     updateHitLog() {

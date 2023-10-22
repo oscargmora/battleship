@@ -23,9 +23,9 @@ test('find index', () => {
 test('place cruiser', () => {
     expect(gameBoard.placeShip('cruiser', 3, 1, 0, 'horizontal')).toStrictEqual(
         [
-            [1, 0, cruiser],
-            [0, 0, cruiser],
-            [2, 0, cruiser]
+            [1, 0, cruiser.name],
+            [0, 0, cruiser.name],
+            [2, 0, cruiser.name]
         ]
     );
 });
@@ -34,10 +34,10 @@ test('place battleship', () => {
     expect(
         gameBoard.placeShip('battleship', 4, 5, 5, 'vertical')
     ).toStrictEqual([
-        [5, 5, battleship],
-        [5, 4, battleship],
-        [5, 3, battleship],
-        [5, 6, battleship]
+        [5, 5, battleship.name],
+        [5, 4, battleship.name],
+        [5, 3, battleship.name],
+        [5, 6, battleship.name]
     ]);
 });
 
@@ -54,13 +54,13 @@ test('place carrier too far on array 2', () => {
 });
 
 test('place carrier', () => {
-    expect(gameBoard.placeShip('carrier', 5, 7, 9, 'horizontal')).toStrictEqual(
+    expect(gameBoard.placeShip('carrier', 5, 6, 9, 'horizontal')).toStrictEqual(
         [
-            [7, 9, carrier],
-            [6, 9, carrier],
-            [5, 9, carrier],
-            [8, 9, carrier],
-            [9, 9, carrier]
+            [6, 9, carrier.name],
+            [5, 9, carrier.name],
+            [4, 9, carrier.name],
+            [7, 9, carrier.name],
+            [8, 9, carrier.name]
         ]
     );
 });
@@ -69,17 +69,17 @@ test('place destroyer', () => {
     expect(
         gameBoard.placeShip('destroyer', 2, 2, 8, 'horizontal')
     ).toStrictEqual([
-        [2, 8, destroyer],
-        [1, 8, destroyer]
+        [2, 8, destroyer.name],
+        [1, 8, destroyer.name]
     ]);
 });
 
 test('place submarine', () => {
     expect(gameBoard.placeShip('submarine', 3, 0, 8, 'vertical')).toStrictEqual(
         [
-            [0, 8, submarine],
-            [0, 7, submarine],
-            [0, 9, submarine]
+            [0, 8, submarine.name],
+            [0, 7, submarine.name],
+            [0, 9, submarine.name]
         ]
     );
 });
@@ -120,11 +120,11 @@ test('all ships sunk', () => {
     gameBoard.receiveAttack(5, 5);
     gameBoard.receiveAttack(5, 6);
     // carrier
-    gameBoard.receiveAttack(7, 9);
     gameBoard.receiveAttack(6, 9);
     gameBoard.receiveAttack(5, 9);
+    gameBoard.receiveAttack(4, 9);
+    gameBoard.receiveAttack(7, 9);
     gameBoard.receiveAttack(8, 9);
-    gameBoard.receiveAttack(9, 9);
     // destroyer
     gameBoard.receiveAttack(2, 8);
     gameBoard.receiveAttack(1, 8);

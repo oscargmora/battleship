@@ -32,11 +32,11 @@ test('AIChooseShipLocationCarrier', () => {
     const result = AI.AIChooseShipLocation(carrier.name, carrier.length);
 
     expect(result).toStrictEqual([
-        [5, 5, carrier],
-        [5, 4, carrier],
-        [5, 3, carrier],
-        [5, 6, carrier],
-        [5, 7, carrier]
+        [5, 5, carrier.name],
+        [5, 4, carrier.name],
+        [5, 3, carrier.name],
+        [5, 6, carrier.name],
+        [5, 7, carrier.name]
     ]);
 
     Math.random = originalRandom;
@@ -48,10 +48,10 @@ test('AIChooseShipLocationBattleship', () => {
     const result = AI.AIChooseShipLocation(battleship.name, battleship.length);
 
     expect(result).toStrictEqual([
-        [2, 2, battleship],
-        [1, 2, battleship],
-        [0, 2, battleship],
-        [3, 2, battleship]
+        [2, 2, battleship.name],
+        [1, 2, battleship.name],
+        [0, 2, battleship.name],
+        [3, 2, battleship.name]
     ]);
 
     Math.random = originalRandom;

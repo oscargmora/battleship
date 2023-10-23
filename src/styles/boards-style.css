@@ -132,25 +132,26 @@ table {
 
 /* End of Meyer Reset*/
 
-html,
-body {
-    height: 100%;
-    width: 100vw;
+container {
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
 }
 
 game-container {
     display: grid;
-    grid-template-columns: 1fr repeat(9, 5em);
-    grid-template-rows: 1fr repeat(9, 5em);
+    grid-template-columns: repeat(10, 1em);
+    grid-template-rows: repeat(10, 1em);
+}
+
+div {
     border: black 1px solid;
 }
 
 .one {
-    height: 5em;
-    border: black 1px solid;
+    cursor: pointer;
 }
 
-.two {
-    height: 5em;
-    border: black 1px solid;
+.one:hover {
+    background-color: rgb(156, 204, 246);
 }

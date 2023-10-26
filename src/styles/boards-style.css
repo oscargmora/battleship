@@ -148,10 +148,23 @@ div {
     border: black 1px solid;
 }
 
-.one {
+div.shot {
+    background-color: green;
+    cursor: default;
+}
+
+div.shot:hover {
+    background-color: green;
+}
+
+.ship-square {
+    background-color: red;
+}
+
+.two {
     cursor: pointer;
 }
 
-.one:hover {
+.two:hover {
     background-color: rgb(156, 204, 246);
 }

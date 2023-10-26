@@ -196,9 +196,7 @@ class GameBoard {
         return 'Space Already Taken';
     }
 
-    receiveAttack(x, y) {
-        const index = this.findIndex(x, y);
-
+    receiveAttack(index) {
         if (this.hitArray[index].length === 0) {
             if (this.array[index].length === 2) {
                 this.hitArray[index].push('miss');

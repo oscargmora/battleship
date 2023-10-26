@@ -91,45 +91,49 @@ test('place ship on a space where a ship already exists', () => {
 });
 
 test('miss', () => {
-    expect(gameBoard.receiveAttack(6, 6)).toStrictEqual(['miss']);
+    const index = gameBoard.findIndex(6, 6);
+    expect(gameBoard.receiveAttack(index)).toStrictEqual(['miss']);
 });
 
 test('hit', () => {
-    expect(gameBoard.receiveAttack(0, 0)).toStrictEqual(['hit']);
+    const index = gameBoard.findIndex(0, 0);
+    expect(gameBoard.receiveAttack(index)).toStrictEqual(['hit']);
 });
 
 test('space already shot at 1', () => {
-    expect(gameBoard.receiveAttack(6, 6)).toStrictEqual(
+    const index = gameBoard.findIndex(6, 6);
+    expect(gameBoard.receiveAttack(index)).toStrictEqual(
         'Space Already Shot At'
     );
 });
 
 test('space already shot at 2', () => {
-    expect(gameBoard.receiveAttack(0, 0)).toStrictEqual(
+    const index = gameBoard.findIndex(0, 0);
+    expect(gameBoard.receiveAttack(index)).toStrictEqual(
         'Space Already Shot At'
     );
 });
 
 test('all ships sunk', () => {
     // cruiser
-    gameBoard.receiveAttack(1, 0);
-    gameBoard.receiveAttack(2, 0);
+    gameBoard.receiveAttack(10);
+    gameBoard.receiveAttack(20);
     // battleship
-    gameBoard.receiveAttack(5, 3);
-    gameBoard.receiveAttack(5, 4);
-    gameBoard.receiveAttack(5, 5);
-    gameBoard.receiveAttack(5, 6);
+    gameBoard.receiveAttack(53);
+    gameBoard.receiveAttack(54);
+    gameBoard.receiveAttack(55);
+    gameBoard.receiveAttack(56);
     // carrier
-    gameBoard.receiveAttack(6, 9);
-    gameBoard.receiveAttack(5, 9);
-    gameBoard.receiveAttack(4, 9);
-    gameBoard.receiveAttack(7, 9);
-    gameBoard.receiveAttack(8, 9);
+    gameBoard.receiveAttack(69);
+    gameBoard.receiveAttack(59);
+    gameBoard.receiveAttack(49);
+    gameBoard.receiveAttack(79);
+    gameBoard.receiveAttack(89);
     // destroyer
-    gameBoard.receiveAttack(2, 8);
-    gameBoard.receiveAttack(1, 8);
+    gameBoard.receiveAttack(28);
+    gameBoard.receiveAttack(18);
     // submarine
-    gameBoard.receiveAttack(0, 8);
-    gameBoard.receiveAttack(0, 7);
-    expect(gameBoard.receiveAttack(0, 9)).toBe('All Ships Sunk');
+    gameBoard.receiveAttack(8);
+    gameBoard.receiveAttack(7);
+    expect(gameBoard.receiveAttack(9)).toBe('All Ships Sunk');
 });

@@ -189,7 +189,6 @@ class GameBoard {
                 return result;
             }
 
-            // Possibly change to return an array of index's?
             return shipArray;
         }
 

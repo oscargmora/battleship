@@ -148,12 +148,30 @@ div {
     border: black 1px solid;
 }
 
-div.shot {
+div.hit {
+    background-color: red;
+    cursor: default;
+}
+
+div.hit:hover {
+    background-color: red;
+}
+
+div.miss {
+    background-color: lightblue;
+    cursor: default;
+}
+
+div.miss:hover {
+    background-color: lightblue;
+}
+
+div.complete {
     background-color: green;
     cursor: default;
 }
 
-div.shot:hover {
+div.complete:hover {
     background-color: green;
 }
 
@@ -162,7 +180,7 @@ div.shot:hover {
 }
 
 .two {
-    cursor: pointer;
+    cursor: crosshair;
 }
 
 .two:hover {

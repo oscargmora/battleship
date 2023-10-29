@@ -5,6 +5,7 @@ import GameBoard from './gameBoardFactory';
 class Player {
     constructor(playerNumber) {
         this.playerNumber = playerNumber;
+        this.turn = Number(playerNumber);
         this.AIShotArray = this.createAIArray();
         this.gameBoard = new GameBoard(playerNumber);
     }
@@ -62,6 +63,16 @@ class Player {
         }
 
         return this.AIChooseAttack();
+    }
+
+    logTurns() {
+        let { turn } = this;
+        if (turn === 1) {
+            turn = 2;
+            return true;
+        }
+        turn = 1;
+        return false;
     }
 }
 

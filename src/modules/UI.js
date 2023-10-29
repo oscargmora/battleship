@@ -1,5 +1,27 @@
 /* eslint-disable no-plusplus */
 
+function changeStatusOfSquare(player, square) {
+    if (square.classList.contains('two')) {
+        square.addEventListener('click', function clickHandler() {
+            if (square.classList.contains('complete')) return;
+            const index = square.getAttribute('id');
+            const attackResult = player.gameBoard.receiveAttack(index);
+            console.log(attackResult);
+            if (attackResult === 'All Ships Sunk') {
+                const allAISquares = document.querySelectorAll('.two');
+                allAISquares.forEach((AISquare) => {
+                    AISquare.classList.add('complete');
+                });
+            } else if (attackResult[0] === 'hit') {
+                square.classList.add('hit');
+            } else {
+                square.classList.add('miss');
+            }
+            square.removeEventListener('click', clickHandler);
+        });
+    }
+}
+
 function displayGameBoards(player) {
     for (let i = 0; i < player.gameBoard.array.length; i++) {
         const gameContainer = document.querySelector(
@@ -12,16 +34,9 @@ function displayGameBoards(player) {
             square.classList.add('ship-square');
         }
 
-        square.setAttribute('id', i);
+        changeStatusOfSquare(player, square);
 
-        if (square.classList.contains('two')) {
-            square.addEventListener('click', function clickHandler() {
-                const index = square.getAttribute('id');
-                const attackResult = player.gameBoard.receiveAttack(index);
-                console.log(attackResult);
-                square.removeEventListener('click', clickHandler);
-            });
-        }
+        square.setAttribute('id', i);
 
         gameContainer.append(square);
     }

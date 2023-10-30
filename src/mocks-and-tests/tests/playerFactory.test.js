@@ -2,7 +2,7 @@
 import Player from '../../modules/factories/playerFactory';
 import Ship from '../../modules/factories/shipFactory';
 
-const AI = new Player(2);
+const AI = new Player('two');
 const carrier = new Ship('carrier', 5);
 const battleship = new Ship('battleship', 4);
 

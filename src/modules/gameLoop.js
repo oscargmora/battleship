@@ -1,24 +1,33 @@
-import Player from './factories/playerFactory';
-import displayGameBoards from './UI';
+/* eslint-disable no-plusplus */
+let hitCounter = 17;
 
-function gameLoop() {
-    const user = new Player('one');
-    const AI = new Player('two');
+function gameLoop(player1, player2, current, endGame) {
+    if (endGame) return;
 
-    user.chooseShipLocation('carrier', 5, 3, 0, 'horizontal');
-    user.chooseShipLocation('cruiser', 3, 2, 2, 'vertical');
-    user.chooseShipLocation('battleship', 4, 4, 9, 'horizontal');
-    user.chooseShipLocation('destroyer', 2, 8, 0, 'horizontal');
-    user.chooseShipLocation('submarine', 3, 5, 5, 'vertical');
+    let currentPlayer = current;
 
-    AI.AIChooseShipLocation('carrier', 5);
-    AI.AIChooseShipLocation('cruiser', 3);
-    AI.AIChooseShipLocation('battleship', 4);
-    AI.AIChooseShipLocation('destroyer', 2);
-    AI.AIChooseShipLocation('submarine', 3);
+    function switchPlayer() {
+        currentPlayer = currentPlayer === player1 ? player2 : player1;
+        return currentPlayer;
+    }
 
-    displayGameBoards(user);
-    displayGameBoards(AI);
+    if (currentPlayer === player2) {
+        const AIShotIndex = player2.AIChooseAttack();
+        const userGameBoardSpace = document.getElementById(AIShotIndex);
+        if (userGameBoardSpace.classList.contains('ship-square')) {
+            userGameBoardSpace.classList.add('hit');
+            hitCounter--;
+            if (hitCounter <= 0) {
+                const userGameBoardSpaces = document.querySelectorAll('.one');
+                userGameBoardSpaces.forEach((space) => {
+                    space.classList.add('complete');
+                });
+            }
+        } else {
+            userGameBoardSpace.classList.add('miss');
+        }
+        switchPlayer();
+    }
 }
 
 export default gameLoop;

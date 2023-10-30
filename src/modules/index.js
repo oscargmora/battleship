@@ -1,4 +1,4 @@
 import '../styles/boards-style.css';
-import gameLoop from './gameLoop';
+import gameStartUp from './startGame';
 
-gameLoop();
+gameStartUp();

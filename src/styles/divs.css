@@ -1,0 +1,46 @@
+div {
+    border: black 1px solid;
+}
+
+div.hit {
+    background-color: red;
+    cursor: default;
+}
+
+div.hit:hover {
+    background-color: red;
+}
+
+div.miss {
+    background-color: lightblue;
+    cursor: default;
+}
+
+div.miss:hover {
+    background-color: lightblue;
+}
+
+div.won {
+    background-color: green;
+    cursor: default;
+}
+
+div.won:hover {
+    background-color: green;
+}
+
+div.lost {
+    pointer-events: none;
+}
+
+.ship-square {
+    background-color: red;
+}
+
+.two {
+    cursor: crosshair;
+}
+
+.two:hover {
+    background-color: rgb(156, 204, 246);
+}

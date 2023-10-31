@@ -1,6 +1,5 @@
 import Player from './factories/playerFactory';
-import displayGameBoards from './UI';
-import gameLoop from './gameLoop';
+import { displayGameBoards, gameLoop } from './UI';
 
 function gameStartUp() {
     const user = new Player('one');

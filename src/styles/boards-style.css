@@ -4,6 +4,7 @@ container {
     gap: 5em;
 }
 
+setup-container,
 game-container {
     display: grid;
     grid-template-columns: repeat(10, 1em);

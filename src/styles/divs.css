@@ -1,5 +1,10 @@
+setup-div,
 div {
     border: black 1px solid;
+}
+
+setup-div:hover {
+    background-color: rgb(77, 139, 231);
 }
 
 div.hit {

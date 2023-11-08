@@ -12,34 +12,19 @@ function createSetupGrid() {
     }
 }
 
-function createOrientationButton() {
-    const buttonContainer = document.querySelector('button-container');
-    const orientationButton = document.createElement('button');
-    orientationButton.innerText = 'Horizontal';
-    buttonContainer.append(orientationButton);
-    orientationButton.onclick = function orientationChange() {
-        if (orientationButton.innerText === 'Horizontal') {
-            orientationButton.innerText = 'Vertical';
-        } else {
-            orientationButton.innerText = 'Horizontal';
-        }
-    };
-    return orientationButton.innerText;
-}
-
-function getCoordinates(e) {
-    const x = e.target.className;
-    const y = e.target.id;
-    return [x, y];
-}
-
-function getShipPlacement(player, shipType, shipLength) {
-    const orientation = createOrientationButton();
+async function getShipPlacement() {
     const divs = document.querySelectorAll('setup-div');
-    divs.forEach((div) => {
-        div.addEventListener('click', getCoordinates);
+    return new Promise((resolve) => {
+        divs.forEach((div) => {
+            div.addEventListener('click', (e) => {
+                const x = e.target.className;
+                const y = e.target.id;
+                const orientation = document.querySelector('button');
+                const orientationText = orientation.innerText;
+                resolve({ x, y, orientationText });
+            });
+        });
     });
-    player.chooseShipLocation(shipType, shipLength, 5, 5, orientation);
 }
 
 export { createSetupGrid, getShipPlacement };

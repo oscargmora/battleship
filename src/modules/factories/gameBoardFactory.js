@@ -56,7 +56,7 @@ class GameBoard {
         rightShipLength
     ) {
         const array = [];
-        if (orientation === 'horizontal') {
+        if (orientation !== 'Horizontal') {
             for (let i = 0; i < leftShipLength; i++) {
                 decreasedX -= 1;
                 const newIndex = this.findIndex(decreasedX, y);
@@ -118,7 +118,7 @@ class GameBoard {
             return 'Please Choose A New Space';
         }
 
-        if (orientation === 'horizontal') {
+        if (orientation !== 'Horizontal') {
             for (let i = 0; i < leftShipLength; i++) {
                 decreasedX -= 1;
                 const newIndex = this.findIndex(decreasedX, y);

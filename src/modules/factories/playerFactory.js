@@ -10,7 +10,14 @@ class Player {
     }
 
     chooseShipLocation(shipName, shipLength, x, y, orientation) {
-        this.gameBoard.placeShip(shipName, shipLength, x, y, orientation);
+        const placement = this.gameBoard.placeShip(
+            shipName,
+            shipLength,
+            x,
+            y,
+            orientation
+        );
+        return placement;
     }
 
     chooseAttack(x, y) {

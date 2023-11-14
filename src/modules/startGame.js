@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-plusplus */
 import Player from './factories/playerFactory';
 import { createSetupGrid, getShipPlacement } from './gameSetup';
@@ -24,7 +25,8 @@ async function gameStartUp() {
     createSetupGrid();
     createOrientationButton();
 
-    const orientationButton = document.querySelector('button');
+    const orientationButtonContainer =
+        document.querySelector('button-container');
     const setupContainer = document.querySelector('setup-container');
     const playerOneGameContainer = document.querySelector('#player-one');
     const playerTwoGameContainer = document.querySelector('#player-two');
@@ -39,7 +41,8 @@ async function gameStartUp() {
         { name: 'destroyer', length: 1 }
     ];
 
-    for (const shipInfo of shipsToPlace) {
+    for (let i = 0; i < shipsToPlace.length; i++) {
+        const shipInfo = shipsToPlace[i];
         const shipName = shipInfo.name;
         const shipLength = shipInfo.length;
 
@@ -61,7 +64,6 @@ async function gameStartUp() {
             );
 
             if (typeof result === 'string') {
-                console.log('Error:', result);
                 // Remove the ship from the board before attempting placement again
                 user.gameBoard.removeShip(shipName);
             } else {
@@ -75,8 +77,8 @@ async function gameStartUp() {
         }
     }
 
+    orientationButtonContainer.remove();
     setupContainer.remove();
-    orientationButton.remove();
 
     // Continue with AI ship placements and the game loop
     AI.AIChooseShipLocation('carrier', 5);

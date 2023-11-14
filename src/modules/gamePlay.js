@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 
 let endGame = false;
-let hitCounter = 17;
+let hitCounter = 16;
 
 function gameLoop(player1, player2, current) {
     if (endGame) return;
@@ -83,10 +83,6 @@ function displayGameBoards(player1, player2) {
         );
         const square = document.createElement('div');
         square.classList.add(player2.playerNumber);
-
-        if (player2.gameBoard.array[i].length > 2) {
-            square.classList.add('ship-square');
-        }
 
         changeStatusOfSquare(player1, player2, square);
 

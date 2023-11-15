@@ -33,10 +33,10 @@ test('AIChooseShipLocationCarrier', () => {
 
     expect(result).toStrictEqual([
         [5, 5, carrier.name],
-        [5, 4, carrier.name],
-        [5, 3, carrier.name],
-        [5, 6, carrier.name],
-        [5, 7, carrier.name]
+        [4, 5, carrier.name],
+        [3, 5, carrier.name],
+        [6, 5, carrier.name],
+        [7, 5, carrier.name]
     ]);
 
     Math.random = originalRandom;

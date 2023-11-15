@@ -39,7 +39,7 @@ class Player {
     AIChooseShipLocation(shipName, shipLength) {
         const randomX = Math.floor(Math.random() * 9) + 1;
         const randomY = Math.floor(Math.random() * 9) + 1;
-        const orientations = ['horizontal', 'vertical'];
+        const orientations = ['Horizontal', 'Vertical'];
         const randomOrientation =
             orientations[Math.floor(Math.random() * orientations.length)];
 

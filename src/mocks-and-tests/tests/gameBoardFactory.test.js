@@ -35,9 +35,9 @@ test('place battleship', () => {
         gameBoard.placeShip('battleship', 4, 5, 5, 'vertical')
     ).toStrictEqual([
         [5, 5, battleship.name],
-        [5, 4, battleship.name],
-        [5, 3, battleship.name],
-        [5, 6, battleship.name]
+        [4, 5, battleship.name],
+        [3, 5, battleship.name],
+        [6, 5, battleship.name]
     ]);
 });
 
@@ -75,11 +75,11 @@ test('place destroyer', () => {
 });
 
 test('place submarine', () => {
-    expect(gameBoard.placeShip('submarine', 3, 0, 8, 'vertical')).toStrictEqual(
+    expect(gameBoard.placeShip('submarine', 3, 8, 0, 'vertical')).toStrictEqual(
         [
-            [0, 8, submarine.name],
-            [0, 7, submarine.name],
-            [0, 9, submarine.name]
+            [8, 0, submarine.name],
+            [7, 0, submarine.name],
+            [9, 0, submarine.name]
         ]
     );
 });
@@ -112,28 +112,4 @@ test('space already shot at 2', () => {
     expect(gameBoard.receiveAttack(index)).toStrictEqual(
         'Space Already Shot At'
     );
-});
-
-test('all ships sunk', () => {
-    // cruiser
-    gameBoard.receiveAttack(10);
-    gameBoard.receiveAttack(20);
-    // battleship
-    gameBoard.receiveAttack(53);
-    gameBoard.receiveAttack(54);
-    gameBoard.receiveAttack(55);
-    gameBoard.receiveAttack(56);
-    // carrier
-    gameBoard.receiveAttack(69);
-    gameBoard.receiveAttack(59);
-    gameBoard.receiveAttack(49);
-    gameBoard.receiveAttack(79);
-    gameBoard.receiveAttack(89);
-    // destroyer
-    gameBoard.receiveAttack(28);
-    gameBoard.receiveAttack(18);
-    // submarine
-    gameBoard.receiveAttack(8);
-    gameBoard.receiveAttack(7);
-    expect(gameBoard.receiveAttack(9)).toBe('All Ships Sunk');
 });

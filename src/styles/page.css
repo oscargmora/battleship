@@ -1,0 +1,22 @@
+@font-face {
+    font-family: orbitron;
+    src: url(../fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
+}
+
+body,
+button {
+    font-family: orbitron;
+}
+
+header,
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

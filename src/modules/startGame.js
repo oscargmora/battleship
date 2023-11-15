@@ -30,6 +30,7 @@ async function gameStartUp() {
     const setupContainer = document.querySelector('setup-container');
     const playerOneGameContainer = document.querySelector('#player-one');
     const playerTwoGameContainer = document.querySelector('#player-two');
+    const subtitle = document.querySelector('subtitle');
 
     displayGameBoards(user, AI);
 
@@ -45,6 +46,8 @@ async function gameStartUp() {
         const shipInfo = shipsToPlace[i];
         const shipName = shipInfo.name;
         const shipLength = shipInfo.length;
+
+        subtitle.innerText = `Place your ${shipName}!`;
 
         let shipPlaced = false;
 
@@ -79,6 +82,8 @@ async function gameStartUp() {
 
     orientationButtonContainer.remove();
     setupContainer.remove();
+
+    subtitle.innerText = 'FIGHT';
 
     // Continue with AI ship placements and the game loop
     AI.AIChooseShipLocation('carrier', 5);

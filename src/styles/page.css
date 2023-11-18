@@ -3,20 +3,78 @@
     src: url(../fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
 }
 
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #1a2b33;
+    color: #cddfdd;
+}
+
 body,
 button {
     font-family: orbitron;
 }
 
-header,
 body {
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+main,
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+header {
+    margin-top: 3em;
+}
+
+main {
+    flex: 0.9 0 auto;
+}
+
+footer {
+    margin-top: 10em;
+    flex-shrink: 0;
+}
+
+main-title {
+    margin: 1em;
+    font-size: 2em;
+}
+
+button {
+    margin: 2em;
+    color: #cddfdd;
+    border-radius: 4px;
+    border: #9b9b9b 2px solid;
+    background-color: #1a2b33;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #cccccc;
+    border: #8b8b8b 2px solid;
+}
+
+container {
+    position: relative;
+}
+
+setup-container {
+    position: absolute;
+}
+
 a {
-    color: black;
+    color: #cddfdd;
     text-decoration: none;
+}
+
+a:hover {
+    color: grey;
 }

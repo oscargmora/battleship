@@ -39,7 +39,7 @@ async function gameStartUp() {
         { name: 'battleship', length: 4 },
         { name: 'cruiser', length: 3 },
         { name: 'submarine', length: 3 },
-        { name: 'destroyer', length: 1 }
+        { name: 'destroyer', length: 2 }
     ];
 
     for (let i = 0; i < shipsToPlace.length; i++) {
@@ -47,7 +47,7 @@ async function gameStartUp() {
         const shipName = shipInfo.name;
         const shipLength = shipInfo.length;
 
-        subtitle.innerText = `Place your ${shipName}!`;
+        subtitle.innerText = `Place your ${shipName}! (${shipLength} spaces)`;
 
         let shipPlaced = false;
 
@@ -95,6 +95,8 @@ async function gameStartUp() {
     playerOneGameContainer.innerHTML = '';
     playerTwoGameContainer.innerHTML = '';
     displayGameBoards(user, AI);
+
+    playerTwoGameContainer.classList.remove('invisible');
 
     gameLoop(user, AI, user, false);
 }

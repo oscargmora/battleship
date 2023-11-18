@@ -3,7 +3,7 @@
 const subtitle = document.querySelector('subtitle');
 
 let endGame = false;
-let hitCounter = 16;
+let hitCounter = 17;
 
 function gameLoop(player1, player2, current) {
     if (endGame) return;
@@ -58,7 +58,7 @@ function changeStatusOfSquare(player1, player2, square) {
             if (attackResult === 'All Ships Sunk') {
                 const allAISquares = document.querySelectorAll('.two');
                 allAISquares.forEach((AISquare) => {
-                    subtitle.innerText = 'YOU WON';
+                    subtitle.innerText = 'YOU WON!';
                     AISquare.classList.add('won');
                 });
                 endGame = true;
@@ -113,6 +113,8 @@ function displayGameBoards(player1, player2) {
         square.setAttribute('id', i);
 
         gameContainer.append(square);
+
+        gameContainer.classList.add('invisible');
     }
 }
 

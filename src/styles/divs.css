@@ -1,37 +1,25 @@
 setup-div,
 div {
-    border: black 1px solid;
+    border: #9b9b9b 1px solid;
 }
 
 setup-div:hover {
     background-color: rgb(77, 139, 231);
+    cursor: pointer;
 }
 
 div.hit {
     background-color: red;
-    cursor: default;
-}
-
-div.hit:hover {
-    background-color: red;
+    pointer-events: none;
 }
 
 div.miss {
-    background-color: lightblue;
-    cursor: default;
-}
-
-div.miss:hover {
-    background-color: lightblue;
+    background-color: #0064ff;
+    pointer-events: none;
 }
 
 div.won {
-    background-color: green;
-    cursor: default;
-}
-
-div.won:hover {
-    background-color: green;
+    pointer-events: none;
 }
 
 div.lost {
@@ -39,7 +27,7 @@ div.lost {
 }
 
 .ship-square {
-    background-color: rgb(168, 168, 168);
+    background-color: rgb(237, 237, 237);
 }
 
 .two {

@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 
+// Create the grid that allows the user to select where they place their ships
 function createSetupGrid() {
     const setupContainer = document.querySelector('setup-container');
     for (let i = 0; i < 10; i++) {
@@ -12,6 +13,7 @@ function createSetupGrid() {
     }
 }
 
+// Find Each Ship Placement in Order
 async function getShipPlacement() {
     const divs = document.querySelectorAll('setup-div');
     return new Promise((resolve) => {

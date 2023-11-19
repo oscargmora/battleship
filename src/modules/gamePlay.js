@@ -15,12 +15,14 @@ function gameLoop(player1, player2, current) {
         return currentPlayer;
     }
 
+    // AI Functionality
     if (currentPlayer === player2) {
         const AIShotIndex = player2.AIChooseAttack();
         const userGameBoardSpace = document.getElementById(AIShotIndex);
         if (userGameBoardSpace.classList.contains('ship-square')) {
             userGameBoardSpace.classList.add('hit');
             hitCounter--;
+            // Check AI Win Conditions
             if (hitCounter <= 0) {
                 const userGameBoardSpaces = document.querySelectorAll('.one');
                 userGameBoardSpaces.forEach((space) => {
@@ -61,6 +63,7 @@ function changeStatusOfSquare(player1, player2, square) {
             if (endGame) return;
             const index = square.getAttribute('id');
             const attackResult = player2.gameBoard.receiveAttack(index);
+            // Check User Win Conditions
             if (
                 attackResult[0] === 'hit' ||
                 attackResult === 'All Ships Sunk'
@@ -100,6 +103,7 @@ function changeStatusOfSquare(player1, player2, square) {
     }
 }
 
+// Create Game Boards and Display
 function displayGameBoards(player1, player2) {
     for (let i = 0; i < player1.gameBoard.array.length; i++) {
         const gameContainer = document.querySelector(

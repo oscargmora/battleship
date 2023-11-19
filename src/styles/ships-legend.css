@@ -1,6 +1,11 @@
-p {
+block-container {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1em;
+}
+
+p {
+    margin-right: 2em;
 }
 
 block {

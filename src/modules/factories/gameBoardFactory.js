@@ -24,6 +24,7 @@ class GameBoard {
         return array;
     }
 
+    // This creates an array that keeps track of whether a space was a hit or a miss
     createHitArray() {
         const hitArray = [];
 
@@ -36,6 +37,7 @@ class GameBoard {
         return hitArray;
     }
 
+    // This function finds the index of the array based on its x and y coordinates
     findIndex(x, y) {
         for (let i = 0; i < this.array.length; i++) {
             if (x === this.array[i][0] && y === this.array[i][1]) {
@@ -44,6 +46,7 @@ class GameBoard {
         }
     }
 
+    // Check if space has already been taken or if space is already off the grid
     checkIfIndexDoesNotExist(
         x,
         y,
@@ -222,6 +225,7 @@ class GameBoard {
         }
     }
 
+    // Keep track of how many times the AI has been hit
     updateHitLog() {
         this.hitLog += 1;
         if (this.hitLog === 17) {

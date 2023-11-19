@@ -70,6 +70,7 @@ function changeStatusOfSquare(player1, player2, square) {
             ) {
                 subtitle.innerText = 'HIT';
                 square.classList.add('hit');
+                console.log(player2.gameBoard.array[square.id][2]);
             } else {
                 subtitle.innerText = 'MISS';
                 square.classList.add('miss');

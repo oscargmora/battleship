@@ -3,7 +3,7 @@
 const subtitle = document.querySelector('subtitle');
 
 let endGame = false;
-let hitCounter = 17;
+let hitCounter = 16;
 
 function gameLoop(player1, player2, current) {
     if (endGame) return;
@@ -28,6 +28,12 @@ function gameLoop(player1, player2, current) {
                     space.classList.add('won');
                 });
                 endGame = true;
+                const playerOneSquares = document.querySelectorAll('.one');
+                playerOneSquares.forEach((sq) => {
+                    if (!sq.classList.contains('hit')) {
+                        sq.classList.add('miss');
+                    }
+                });
                 const playAgainButtonContainer = document.querySelector(
                     'play-again-button-container'
                 );
@@ -55,11 +61,27 @@ function changeStatusOfSquare(player1, player2, square) {
             if (endGame) return;
             const index = square.getAttribute('id');
             const attackResult = player2.gameBoard.receiveAttack(index);
+            if (
+                attackResult[0] === 'hit' ||
+                attackResult === 'All Ships Sunk'
+            ) {
+                subtitle.innerText = 'HIT';
+                square.classList.add('hit');
+            } else {
+                subtitle.innerText = 'MISS';
+                square.classList.add('miss');
+            }
             if (attackResult === 'All Ships Sunk') {
                 const allAISquares = document.querySelectorAll('.two');
                 allAISquares.forEach((AISquare) => {
                     subtitle.innerText = 'YOU WON!';
                     AISquare.classList.add('won');
+                });
+                const playerTwoSquares = document.querySelectorAll('.two');
+                playerTwoSquares.forEach((sq) => {
+                    if (!sq.classList.contains('hit')) {
+                        sq.classList.add('miss');
+                    }
                 });
                 endGame = true;
                 const playAgainButtonContainer = document.querySelector(
@@ -71,12 +93,6 @@ function changeStatusOfSquare(player1, player2, square) {
                     window.location.reload();
                 });
                 playAgainButtonContainer.append(playAgainButton);
-            } else if (attackResult[0] === 'hit') {
-                subtitle.innerText = 'HIT';
-                square.classList.add('hit');
-            } else {
-                subtitle.innerText = 'MISS';
-                square.classList.add('miss');
             }
             square.removeEventListener('click', clickHandler);
             gameLoop(player1, player2, player2);

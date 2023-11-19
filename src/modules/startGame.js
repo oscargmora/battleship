@@ -87,10 +87,10 @@ async function gameStartUp() {
 
     // Continue with AI ship placements and the game loop
     AI.AIChooseShipLocation('carrier', 5);
-    AI.AIChooseShipLocation('cruiser', 3);
     AI.AIChooseShipLocation('battleship', 4);
-    AI.AIChooseShipLocation('destroyer', 2);
+    AI.AIChooseShipLocation('cruiser', 3);
     AI.AIChooseShipLocation('submarine', 3);
+    AI.AIChooseShipLocation('destroyer', 2);
 
     playerOneGameContainer.innerHTML = '';
     playerTwoGameContainer.innerHTML = '';

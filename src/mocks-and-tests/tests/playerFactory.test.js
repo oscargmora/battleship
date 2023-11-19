@@ -49,9 +49,9 @@ test('AIChooseShipLocationBattleship', () => {
 
     expect(result).toStrictEqual([
         [2, 2, battleship.name],
-        [1, 2, battleship.name],
-        [0, 2, battleship.name],
-        [3, 2, battleship.name]
+        [2, 1, battleship.name],
+        [2, 0, battleship.name],
+        [2, 3, battleship.name]
     ]);
 
     Math.random = originalRandom;

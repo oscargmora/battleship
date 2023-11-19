@@ -98,6 +98,9 @@ async function gameStartUp() {
 
     playerTwoGameContainer.classList.remove('invisible');
 
+    const shipsLegend = document.querySelector('ships-legend');
+    shipsLegend.remove();
+
     gameLoop(user, AI, user, false);
 }
 

@@ -8,15 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-<!-- PROJECT LOGO -->
-<br />
-<!--
-<div align="center">
-  <a href="https://github.com/oscargmora/battleship">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
--->
-
 <h3 align="center">Battleship</h3>
 
   <p align="center">

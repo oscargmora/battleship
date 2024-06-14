@@ -1,9 +1,5 @@
 Live Demo --> https://oscargmora.github.io/battleship/
 
-Battleship game created solely through HTML, CSS, and Javascript.
-
-This game demonstrates my use of Jest, and best practice testing strategies while creating the game.
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -40,10 +36,12 @@ This game demonstrates my use of Jest, and best practice testing strategies whil
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Battleship</h3>
 
   <p align="center">
-    project_description
+    Battleship game created solely through HTML, CSS, and Javascript.
+
+  This game demonstrates my use of Jest, and best practice testing strategies while creating the game.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
